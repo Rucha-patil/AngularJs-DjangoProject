@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/project.js"></script>
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    
+    
+  </head>
+  <body ng-app="myProject" ng-controller="myController">
+       <div class="container">
+           <hr>
+           <h2>All Users</h2>
+            <button type="button" class="btn btn-success btn-lg" style="float:right"data-toggle="modal" data-target="#myModal">Add New </button>
+            
+           
+            <span class="clearfix"></span>
+           <hr>
+
+           <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Index</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Dob</th>
+                <th>Company</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>y</td>
+                <td>y@gmail.com</td>
+                <td>ycity</td>
+                <td>1/10/2010</td>
+                <td>y infotech</td>
+                <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalEdit" ng-click="selectUser()">Edit</button></td>
+                <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModalDelete">Delete</button></td>
+               </tr>
+              <tr>
+                <td>1</td>
+                <td>y</td>
+                <td>y@gmail.com</td>
+                <td>ycity</td>
+                <td>1/10/2010</td>
+                <td>y infotech</td>
+                <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalEdit"ng-click="selectUser()">Edit</button></td>
+                <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModalDelete">Delete</button></td>
+              </tr>
+              <tr >
+                <td>1</td>
+                <td>y</td>
+                <td>y@gmail.com</td>
+                <td>ycity</td>
+                <td>1/10/2010</td>
+                <td>y infotech</td>
+                <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalEdit"ng-click="selectUser()">Edit</button></td>
+                <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModalDelete">Delete</button></td>
+              </tr>
+
+              <tr ng-repeat="user in users">
+                <td>{{$index+1}}.</td>
+                <td>{{user.username}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.address}}</td>
+                <td>{{user.dob}}</td>
+                <td>{{user.company}}</td>
+                <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalEdit"ng-click="selectUser()">Edit</button></td>
+                <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModalDelete">Delete</button></td>
+               </tr>
+            </tbody>
+          </table>
+       </div>
+
+
+
+       
+
+ 
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+    
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <hr>
+          <h4 class="modal-title">New Employee Sign-Up</h4>
+        </div>
+        
+        <div class="modal-body">
+            <form class="form-horizontal" action="/action_page.php">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="username">Username:</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="username" placeholder="Enter username" ng-model="newUser.username">
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label class="control-label col-sm-2" for="email">Email:</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="newUser.email">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-sm-2" for="address">Address:</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="address" placeholder="Enter your Address" ng-model="newUser.address">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-sm-2" for="dob">DOB:</label>
+                    <div class="col-sm-10">
+                      <input type="datet" class="form-control" id="dob" placeholder="Enter Date Of Birth" ng-model="newUser.dob">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-sm-2" for="company">Company:</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="company" placeholder="Enter Company name" ng-model="newUser.company">
+                    </div>
+                  </div>
+                
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-success">Save</button>
+                  </div>
+                </div>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+
+  <div class="modal fade" id="myModalEdit" role="dialog">
+    <div class="modal-dialog">
+    
+    
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <hr>
+          <h4 class="modal-title">Edit The Employee Details</h4>
+        </div>
+        
+        <div class="modal-body">
+            <form class="form-horizontal" action="/action_page.php">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="username">UserName:</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="username" placeholder="Enter username" ng-model="clicked.username">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-sm-2" for="email">Email:</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="clicked.email">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-sm-2" for="address">Address:</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="address" placeholder="Enter your Address" ng-model="clicked.address">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-sm-2" for="dob">DOB:</label>
+                    <div class="col-sm-10">
+                      <input type="datet" class="form-control" id="dob" placeholder="Enter Date Of Birth" ng-model="clicked.dob">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-sm-2" for="company">Company:</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="company" placeholder="Enter Company name" ng-model="clicked.company">
+                    </div>
+                  </div>
+                
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-success">Save</button>
+                  </div>
+                </div>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="myModalDelete" role="dialog">
+    <div class="modal-dialog">
+    
+    
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <hr>
+          <h4 class="modal-title">Are You Sure?</h4>
+        </div>
+        
+        <div class="modal-body">
+            <strong style="color: red;">
+            You Are Going to DELETE......{{clickedUser.username}}.</strong>
+            
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal"ng-click="deleteUser()">Yes</button>
+          <button type="button" class="btn btn-warning" data-dismiss="modal">No</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+       
+      
+
+   
+   </body>
+</html>

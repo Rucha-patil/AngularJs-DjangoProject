@@ -1,0 +1,82 @@
+<div class="registerDiv" id="registerDiv">
+    <div id="tagline"></div>
+    <div id="PageTitle">SignUp</div>
+</div><br><br>
+<div class="container">
+    <span ng-if="userRegistered">
+        <div align="center">You are succesfully Sign up..</div>
+    </span>
+    <span ng-if="userRegistered">
+        <form name="registrationForm" role="form" class="form-horizantal">
+            <div class="form-group">
+                <label class="col-xs-4 col-xs-4 col-lg-4 control-label">FirstName</label>
+                <div class="col-xs-4 col-xm-4 col-lg-4">
+                    <input name="firstName" type="text" size="35" ng-model="user.firstName" class="form-control" required>
+                </div>
+                <div class="col-xs-4 col-xm-4 col-lg-4"></div>
+            </div> 
+
+            <div class="form-group">
+                <label class="col-xs-4 col-xs-4 col-lg-4 control-label">LastName</label>
+                <div class="col-xs-4 col-xm-4 col-lg-4">
+                    <input name="lastName" type="text" size="35" ng-model="user.lastName" class="form-control" required>
+                </div>
+                <div class="col-xs-4 col-xm-4 col-lg-4"></div>
+            </div> 
+            
+            <div class="form-group">
+                <label class="col-xs-4 col-xs-4 col-lg-4 control-label">Email:</label>
+                <div class="col-xs-4 col-xm-4 col-lg-4">
+                    <input name="email" type="email" size="35" ng-model="user.email" ng-minlength="3" ng-maxlength="15"
+                    class="form-control" required>
+                </div>
+                <span ng-show="registrationForm.userName.$touched && registrationForm.userName.$Invalid">
+                    <font color="red">The username is required with minlength=3 and maxlength=15</font>
+                </span>
+                <div class="col-xs-4 col-xm-4 col-lg-4"></div>
+            </div>  
+            
+            <div class="form-group">
+                <label class="col-xs-4 col-xs-4 col-lg-4 control-label">Password:</label>
+                <div class="col-xs-4 col-xm-4 col-lg-4">
+                    <input name="password" type="{{inputType}}" size="35" ng-model="user.password" ng-minlength="3" ng-maxlength="15"
+                    class="form-control" required>
+                </div>
+                <span ng-show="registrationForm.password.$touched && registrationForm.password.$Invalid">
+                    <font color="red">The password is required with minlength=3 and maxlength=15</font>
+                </span>
+                <div class="col-xs-4 col-xm-4 col-lg-4"></div>
+            </div>  
+            <div class="form-group">
+                <label class="col-xs-4 col-xs-4 col-lg-4 control-label">Address</label>
+                <div class="col-xs-4 col-xm-4 col-lg-4">
+                    <input name="address" type="text" size="35" ng-model="user.address" class="form-control" required>
+                </div>
+                <div class="col-xs-4 col-xm-4 col-lg-4"></div>
+            </div> 
+            <div class="form-group">
+                <label class="col-xs-4 col-xs-4 col-lg-4 control-label">DOB</label>
+                <div class="col-xs-4 col-xm-4 col-lg-4">
+                    <input name="dob" type="date"  ng-model="user.dob" class="form-control" required>
+                </div>
+                <div class="col-xs-4 col-xm-4 col-lg-4"></div>
+            </div> 
+            <div class="form-group">
+                <label class="col-xs-4 col-xs-4 col-lg-4 control-label">Company</label>
+                <div class="col-xs-4 col-xm-4 col-lg-4">
+                    <input name="company" type="text" size="35" ng-model="user.company" class="form-control" required>
+                </div>
+                <div class="col-xs-4 col-xm-4 col-lg-4"></div>
+            </div> 
+            <div class="form-group">
+                <div class="col-xs-4 col-xm-4 col-lg-4"></div>
+                <div class="col-xs-4 col-xm-4 col-lg-4">
+                    <input type="button" ng-click="reset()" value="Reset"/>
+                    <input type="submit" ng-click="registerUser(user)" value="Save"/>              
+                </div>
+                <div class="col-xs-4 col-xm-4 col-lg-4"></div>
+             </div>
+            
+        </form>
+    </span>
+</div>
